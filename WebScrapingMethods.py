@@ -5,6 +5,7 @@
 #imports
 from bs4 import BeautifulSoup
 import pandas as pd
+import requests
 
 
 #given dictionary, or month(s), day(s), year(s)
@@ -12,9 +13,9 @@ def getLinks(base_url, dates_dict=None, months=None, days=None, years=None):
     urls = []
     if (type(dates_dict) == dict):
         for d in dates_dict.keys():
-            for v in dates[d]:
+            for v in dates_dict[d]:
                 url = base_url + '2020{}{}/h41.htm'.format(d, v)
-                urls.append(base_url)
+                urls.append(url)
     elif (months) and (days) and (years):
         for y in years:
             for m in months:
@@ -26,8 +27,9 @@ def getLinks(base_url, dates_dict=None, months=None, days=None, years=None):
                 for d in days:
                     url = base_url + '{}{}{}/h41.htm'.format(y, m, d)
                     urls.append(base_url)
-    urls.append(base_url + 'current/h41.htm')
-    return urls
+    last = '{}/current/h41.htm'.format(base_url)
+    urls.append(last)
+    return urls.copy()
 
 #returns beautifulsoup of html page
 def getSoup(url):
@@ -91,6 +93,7 @@ def cleanFeatures(features):
 #returns the pandas dataframe from the given features and data
 def createDataFrame(cleaned_features, data, date_index=0):
     #create df from cleaned_features
+    print(len(cleaned_features), len(data))
     if (len(cleaned_features) != len(data)):
         return 'None'
     dvals = {}

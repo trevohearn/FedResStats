@@ -10,10 +10,10 @@ import pandas as pd
 
 
 base_url = 'https://www.federalreserve.gov/releases/h41/'
-get = requests.get(url)
-bs = BeautifulSoup(get.content, 'html-parser')
+#get = requests.get(url)
+#bs = BeautifulSoup(get.content, 'html-parser')
 
-data = bs.select('.H41Release > tr > td > p')
+#data = bs.select('.H41Release > tr > td > p')
 
 dates = {'01' : ['02', '09','16','23','30'],
         '02' : ['06', '13', '20' , '27'],
@@ -22,12 +22,12 @@ dates = {'01' : ['02', '09','16','23','30'],
          '05' : ['07', '14', '21'] #has current
         }
 
-urls = wsm.getLinks(base_url, dates_dict=dates)
-
+urls = wsm.getLinks(base_url, dates_dict= dates)
 dfs = []
 for url in urls:
+    print(url)
     bs = wsm.getSoup(url)
-        data = bs.select('.H41Release > tr > td > p')
+    data = bs.select('.H41Release > tr > td > p')
     if (len(data) == 0):
         data = bs.select('.H41Release td p')
         if (len(data) == 0):
@@ -37,7 +37,10 @@ for url in urls:
     features = wsm.getFeatures(bs)
     clean_features = wsm.cleanFeatures(features)
     clean_data = wsm.cleanData(data, len(clean_features[2]))
+    print(clean_features)
+    print(clean_data)
     dfs.append(wsm.createDataFrame(clean_features, clean_data))
+print(type(dfs[0]))
 df = dfs[0]
 for d in dfs[1:]:
     df = df.append(d, ignore_index=False)
@@ -59,3 +62,4 @@ namesdict = {}
 for i, c in enumerate(df.columns):
     namesdict[c] = c.strip('1234567890').title()
 df.rename(namesdict, axis='columns', inplace=True)
+df.to_csv('fedreservesummary.csv')
