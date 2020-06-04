@@ -1,6 +1,6 @@
 # Federal Reserve Statistical Release Project
 
-!['Plotly Pie Chart'](images/PlotlyPieChar.png)
+!['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/PlotlyPieChart.png)
 
 
 ## Goal
