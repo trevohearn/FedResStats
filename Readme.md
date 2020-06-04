@@ -19,3 +19,4 @@
 ## Future
 - Add more visuals and data analysis
 - Create Frontend to select tables, sort by data and choose visuals
+- Go back to all readily available data (June 1996)
