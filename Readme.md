@@ -1,7 +1,10 @@
 # Federal Reserve Statistical Release Project
 
+## Pie-Chart of Distribution
 !['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/PlotlyPieChart.png)
 
+## Line Graph of Rolling Totals
+!['Plotly Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/TotalFedResLineChart.png)
 
 ## Goal
 - To use data visualization to better explain what the government spends the nation's money on
