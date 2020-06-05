@@ -8,28 +8,38 @@ import pandas as pd
 import requests
 
 
+
 #given dictionary, or month(s), day(s), year(s)
-def getLinks(base_url, dates_dict=None, months=None, days=None, years=None):
+def getLinks(base_url, dates_dict=None, end_url_list = None, months=None, days=None, years=None):
     urls = []
+
     if (type(dates_dict) == dict):
         for d in dates_dict.keys():
             for v in dates_dict[d]:
                 url = base_url + '2020{}{}/h41.htm'.format(d, v)
                 urls.append(url)
+        last = '{}/current/h41.htm'.format(base_url)
+        urls.append(last)
     elif (months) and (days) and (years):
         for y in years:
             for m in months:
                 for d in days:
                     url = base_url + '{}{}{}/h41.htm'.format(y, m, d)
                     urls.append(base_url)
+        last = '{}/current/h41.htm'.format(base_url)
+        urls.append(last)
     elif (months) and (days):
             for m in months:
                 for d in days:
                     url = base_url + '{}{}{}/h41.htm'.format(y, m, d)
                     urls.append(base_url)
-    last = '{}/current/h41.htm'.format(base_url)
-    urls.append(last)
-    return urls.copy()
+            last = '{}/current/h41.htm'.format(base_url)
+            urls.append(last)
+    elif (type(end_url_list) == list):
+        for d in end_url_list:
+            url = base_url + d
+            urls.append(url)
+    return urls
 
 #returns beautifulsoup of html page
 def getSoup(url):

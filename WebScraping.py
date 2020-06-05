@@ -15,14 +15,21 @@ base_url = 'https://www.federalreserve.gov/releases/h41/'
 
 #data = bs.select('.H41Release > tr > td > p')
 
-dates = {'01' : ['02', '09','16','23','30'],
-        '02' : ['06', '13', '20' , '27'],
-        '03' : ['05', '12', '19' , '26'],
-        '04' : ['02', '09', '16', '23', '30'],
-         '05' : ['07', '14', '21'] #has current
-        }
+# dates = {'01' : ['02', '09','16','23','30'],
+#         '02' : ['06', '13', '20' , '27'],
+#         '03' : ['05', '12', '19' , '26'],
+#         '04' : ['02', '09', '16', '23', '30'],
+#          '05' : ['07', '14', '21'] #has current
+#         }
 
-urls = wsm.getLinks(base_url, dates_dict= dates)
+#get list for links
+soup = wsm.getSoup(base_url)
+hrefs = soup.select('.col-xs-1 a')
+end_urls = []
+for a in hrefs:
+    end_urls.append(a.attrs['href'] + '/h41.htm')
+
+urls = wsm.getLinks(base_url, end_url_list=end_urls)
 dfs = []
 for url in urls:
     print(url)
