@@ -11,6 +11,7 @@ Right now, I have two .csv files that are from the first overview table of the r
 
 ## Banks Assets Overview
 !['Banks Line Chart'](https://github.com/trevohearn/FedResStats/blobl/master/images/BanksAssetsOverview.png)
+!['Banks Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/BanksAssetsOverview.png)
 
 ## Goal
 - To use data visualization to better explain what the government spends the nation's money on
