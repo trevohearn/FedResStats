@@ -9,6 +9,9 @@ Right now, I have two .csv files that are from the first overview table of the r
 ## Line Graph of Rolling Totals
 !['Plotly Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/TotalFedResLineChart.png)
 
+## Banks Assets Overview
+!['Banks Line Chart'](https://github.com/trevohearn/FedResStats/blobl/master/images/BanksAssetsOverview.png)
+
 ## Goal
 - To use data visualization to better explain what the government spends the nation's money on
 - To use webscraping to automatically gather the new data every week and make it easily manipulatable and readily available
