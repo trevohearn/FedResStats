@@ -10,7 +10,6 @@ Right now, I have two .csv files that are from the first overview table of the r
 !['Plotly Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/TotalFedResLineChart.png)
 
 ## Banks Assets Overview
-!['Banks Line Chart'](https://github.com/trevohearn/FedResStats/blobl/master/images/BanksAssetsOverview.png)
 !['Banks Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/BanksAssetsOverview.png)
 
 ## Goal
