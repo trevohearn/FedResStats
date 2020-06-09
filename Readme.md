@@ -1,4 +1,7 @@
 # Federal Reserve Statistical Release Project
+The Federal Reserve sends out detailed reports every week about what they are doing with the nation's money. The webpage itself is nothing special, and mostly just a large pile of text. I decided to scrape the valuable information from each document and try to represent it in a more appealing way.
+
+Right now, I have two .csv files that are from the first overview table of the report and the second is specifically about what each bank is doing. Also go ahead and check out banksgraph.html, it is an interactive line graph using plotly showing each bank's total assets.
 
 ## Pie-Chart of Distribution
 !['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/PlotlyPieChart.png)
