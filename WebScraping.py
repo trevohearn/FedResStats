@@ -44,8 +44,8 @@ for url in urls:
     features = wsm.getFeatures(bs)
     clean_features = wsm.cleanFeatures(features)
     clean_data = wsm.cleanData(data, len(clean_features[2]))
-    print(clean_features)
-    print(clean_data)
+    #print(clean_features)
+    #print(clean_data)
     dfs.append(wsm.createDataFrame(clean_features, clean_data))
 print(type(dfs[0]))
 df = dfs[0]
