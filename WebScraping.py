@@ -50,6 +50,7 @@ for url in urls:
 print(type(dfs[0]))
 df = dfs[0]
 for d in dfs[1:]:
+    
     df = df.append(d, ignore_index=False)
 df['Date'] = pd.to_datetime(df['Date'], format='%B %d, %Y', errors='ignore')
 df.set_index('Date', inplace=True)
