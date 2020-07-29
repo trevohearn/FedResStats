@@ -47,10 +47,10 @@ for url in urls:
     #print(clean_features)
     #print(clean_data)
     dfs.append(wsm.createDataFrame(clean_features, clean_data))
-print(type(dfs[0]))
+#print(type(dfs[0]))
+
 df = dfs[0]
 for d in dfs[1:]:
-
     df = df.append(d, ignore_index=False)
 df['Date'] = pd.to_datetime(df['Date'], format='%B %d, %Y', errors='ignore')
 df.set_index('Date', inplace=True)
@@ -72,4 +72,5 @@ for i, c in enumerate(df.columns):
     namesdict[c] = c.strip('1234567890').title()
 df.rename(namesdict, axis='columns', inplace=True)
 #make way to consolodate duplicate columns
+#add banks and such
 df.to_csv('fedreservesummary_test.csv')
