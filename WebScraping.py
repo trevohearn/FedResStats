@@ -50,7 +50,7 @@ for url in urls:
 print(type(dfs[0]))
 df = dfs[0]
 for d in dfs[1:]:
-    
+
     df = df.append(d, ignore_index=False)
 df['Date'] = pd.to_datetime(df['Date'], format='%B %d, %Y', errors='ignore')
 df.set_index('Date', inplace=True)
@@ -58,6 +58,7 @@ df.set_index('Date', inplace=True)
 all_dfs = [df]
 columnNames = df.columns
 df.fillna('0', inplace=True)
+#clean data frame
 for df in all_dfs:
     for c in columnNames:
         df[c] = df[c].apply(removeUnicode)
@@ -70,4 +71,5 @@ namesdict = {}
 for i, c in enumerate(df.columns):
     namesdict[c] = c.strip('1234567890').title()
 df.rename(namesdict, axis='columns', inplace=True)
+#make way to consolodate duplicate columns
 df.to_csv('fedreservesummary_test.csv')
