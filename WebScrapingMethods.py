@@ -128,3 +128,9 @@ def removeComma(x):
         return x.replace(',', '')
     else:
         return x
+
+#given dataframe, features, and extras
+#return dateframe with unique columns
+
+def uniqueColumns(df, features, extras):
+    return df
