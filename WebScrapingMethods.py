@@ -133,4 +133,16 @@ def removeComma(x):
 #return dateframe with unique columns
 
 def uniqueColumns(df, features, extras):
+    #pair similar extras to getFeatures
+    #consolodate extras from df and features from df
+    #check that features and extras are in df
+    all_cols = df.columns
+    #compare lists
+    if (features + extras == all_cols)
+        #good to go
+    else:
+        return 'not all columns accounted for'
+
+        pass
+        pass
     return df
