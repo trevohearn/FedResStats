@@ -27,6 +27,7 @@ soup = wsm.getSoup(base_url)
 hrefs = soup.select('.col-xs-1 a')
 end_urls = []
 for a in hrefs:
+    #get links for 2020 and 2019
     if (a.attrs['href'][:4] == '2020' or a.attrs['href'][:4] == '2019'
         or a.attrs['href'][:4] == 'curr'):
         end_urls.append(a.attrs['href'] + '/h41.htm')
@@ -35,22 +36,23 @@ for a in hrefs:
 
 urls = wsm.getLinks(base_url, end_url_list=end_urls)
 dfs = []
+#should be able to get from scraping info
+total_columns_in_tables = [4, 4, 4, 7, 1, 4, 4, 13, 13, 1]
+#should work with a 'last' or 'first' or 'all' keyword
+desired_columns = [3, 3, 3, 7, 0, 1, 1, 'all', 'all', 0]
 for url in urls:
     print(url)
     bs = wsm.getSoup(url)
-    data = bs.select('.H41Release > tr > td > p')
-    if (len(data) == 0):
-        data = bs.select('.H41Release td p')
-        if (len(data) == 0):
-            print('no data')
-            print(url)
-            break;
+    date = bs.select('.H41Release td p')[0].text.strip()
+    #get
     features = wsm.getFeatures(bs)
-    clean_features = wsm.cleanFeatures(features)
-    clean_data = wsm.cleanData(data, len(clean_features[2]))
-    #print(clean_features)
-    #print(clean_data)
-    dfs.append(wsm.createDataFrame(clean_features, clean_data))
+    data = getData(features, bs, total_columns_in_tables, desired_columns)
+    #returns lists of only attribute.text instead of scraped information
+    clean_features = cleanFeatures(features)
+    #returns the data cleaned
+    clean_data = cleanData(data)
+    dfs.append(createDataFrame(clean_features, clean_data))
+    #data = bs.select('.H41Release > tr > td > p')
 #print(type(dfs[0]))
 
 df = dfs[0]

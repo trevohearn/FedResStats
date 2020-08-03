@@ -74,6 +74,39 @@ def getFeatures(bs):
         curtable += 1
     return features
 
+#add a way to select specific tables and break out of loop without breaking
+def getData(features, bs, totaltablecols, tablecol):
+    data = []
+    tables = bs.select('table')
+    i = 0
+    #loop over all the tables
+    for index, key in enumerate(features):
+        #if table has features in it, get data
+        if (len(features[key]) > 0):
+            fs = features[key]
+            #get all tds in table
+            tds = tables[index].select('td')
+            #loop over all features (rows) for table
+            if (tablecol[i] == 'all'):
+                #get all td data from table
+                for td in tds:
+                    data.append(td.text.strip())
+            else:
+                #get specific column of data
+                for j, f in enumerate(fs):
+                    spot = totaltablecols[i] * j + tablecol[i]
+                    print(tds[spot])
+                    thing = tds[spot].text.strip()
+                    data.append(thing)
+            #increment table parameters for next table
+            i += 1
+    return data
+
+def getTableData(features, bs, column_num):
+    data = []
+    tables = bs.select('table')
+
+
 #strips the data and returns the chosen features
 def cleanData(data, numFeatures, multiple=4, column=3, skip_amount=1, date_index=0):
     #skip date
