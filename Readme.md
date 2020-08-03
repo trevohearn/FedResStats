@@ -4,7 +4,7 @@ The Federal Reserve sends out detailed reports every week about what they are do
 Right now, I have two .csv files that are from the first overview table of the report and the second is specifically about what each bank is doing. Also go ahead and check out banksgraph.html, it is an interactive line graph using plotly showing each bank's total assets.
 
 ## Pie-Chart of Distribution
-!['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/PlotlyPieChart.png)
+!['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/pie_chart.png)
 
 ## Line Graph of Rolling Totals
 !['Plotly Line Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/TotalFedResLineChart.png)

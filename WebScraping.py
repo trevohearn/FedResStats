@@ -27,7 +27,11 @@ soup = wsm.getSoup(base_url)
 hrefs = soup.select('.col-xs-1 a')
 end_urls = []
 for a in hrefs:
-    end_urls.append(a.attrs['href'] + '/h41.htm')
+    if (a.attrs['href'][:4] == '2020' or a.attrs['href'][:4] == '2019'
+        or a.attrs['href'][:4] == 'curr'):
+        end_urls.append(a.attrs['href'] + '/h41.htm')
+    else:
+        break
 
 urls = wsm.getLinks(base_url, end_url_list=end_urls)
 dfs = []
