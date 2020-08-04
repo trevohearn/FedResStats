@@ -98,14 +98,17 @@ def getData(features, bs, totaltablecols, tablecol):
                     print(tds[spot])
                     thing = tds[spot].text.strip()
                     data.append(thing)
+
             #increment table parameters for next table
             i += 1
     return data
 
-def getTableData(features, bs, column_num):
+def getTableData(features, bs, tablenum=1, column_num):
     data = []
-    tables = bs.select('table')
-
+    tables = bs.select('table')[tablenum]
+    for index, key in enumerate(features):
+        if (len(features[key]) > 0): #
+        return None
 
 #strips the data and returns the chosen features
 def cleanData(data, numFeatures, multiple=4, column=3, skip_amount=1, date_index=0):
