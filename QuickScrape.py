@@ -44,8 +44,8 @@ for url in urls:
     for i, f in enumerate(cleaned_features[2]):
         dfvals[f] = data[i]
 
-    df = pd.DataFrame(data=dfvals)
-    dfs.append(dfvals)
+    df = pd.DataFrame(data=dfvals, index=[0])
+    dfs.append(df)
 
 #clean dataframe
 df = dfs[0]
@@ -60,8 +60,8 @@ df.fillna('0', inplace=True)
 #clean data frame
 for df in all_dfs:
     for c in columnNames:
-        df[c] = df[c].apply(removeUnicode)
-        df[c] = df[c].apply(removePlus)
-        df[c] = df[c].apply(removeComma)
+        df[c] = df[c].apply(wsm.removeUnicode)
+        df[c] = df[c].apply(wsm.removePlus)
+        df[c] = df[c].apply(wsm.removeComma)
         df[c] = df[c].astype(int)
-df_all.to_csv('quickscrape.csv')
+all_dfs[0].to_csv('FederalReserveSummaryAugust4th2020.csv')

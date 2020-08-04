@@ -79,4 +79,4 @@ for i, c in enumerate(df.columns):
 df.rename(namesdict, axis='columns', inplace=True)
 #make way to consolodate duplicate columns
 #add banks and such
-df.to_csv('fedreservesummary_test.csv')
+df.to_csv('fedreservesummaryAugust4th.csv')
