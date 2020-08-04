@@ -103,12 +103,12 @@ def getData(features, bs, totaltablecols, tablecol):
             i += 1
     return data
 
-def getTableData(features, bs, tablenum=1, column_num):
-    data = []
-    tables = bs.select('table')[tablenum]
-    for index, key in enumerate(features):
-        if (len(features[key]) > 0): #
-        return None
+# def getTableData(features, bs, tablenum=1, column_num):
+#     data = []
+#     tables = bs.select('table')[tablenum]
+#     for index, key in enumerate(features):
+#         if (len(features[key]) > 0): #
+#     return None
 
 #strips the data and returns the chosen features
 def cleanData(data, numFeatures, multiple=4, column=3, skip_amount=1, date_index=0):
@@ -120,6 +120,7 @@ def cleanData(data, numFeatures, multiple=4, column=3, skip_amount=1, date_index
     for index in range(numFeatures):
         cleanData.append(dataM[multiple * index + column].text.strip())
     return cleanData
+
 
 #clean features scraped from the web
 #takes soup elements and returns dictionary of table and list of features
