@@ -67,9 +67,9 @@ df.fillna('0', inplace=True)
 #clean data frame
 for df in all_dfs:
     for c in columnNames:
-        df[c] = df[c].apply(removeUnicode)
-        df[c] = df[c].apply(removePlus)
-        df[c] = df[c].apply(removeComma)
+        df[c] = df[c].apply(wsm.removeUnicode)
+        df[c] = df[c].apply(wsm.removePlus)
+        df[c] = df[c].apply(wsm.removeComma)
         df[c] = df[c].astype(int)
 #pd.to_datetime('13000101', format='%Y%m%d', errors='coerce')
 #rename df

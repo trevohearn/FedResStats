@@ -147,7 +147,12 @@ def createDataFrame(cleaned_features, data, date_index=0):
     dfvals = {'Date' : data.pop(date_index).text.strip()}
     for key in data:
         dfvals[key] = data
-    return pd.DataFrame(data=dfvals)
+    df = None
+    try:
+        df = pd.DataFrame(data=dfvals)
+    except:
+        df = pd.DataFrame(data=dfvals, index=[0])
+    return df
 
 #remove unic issues '\xa0'
 def removeUnicode(x):
