@@ -160,16 +160,37 @@ def removeUnicode(x):
         return x.replace('\xa0', '')
     else:
         return x
+
+#remove any +
 def removePlus(x):
     if '+' in str(x):
         return x.replace('+', '')
     else:
         return x
+
+#remove any ,
 def removeComma(x):
     if ',' in str(x):
         return x.replace(',', '')
     else:
         return x
+
+#remove any parentheses ()
+def removeParentheses(x):
+    if '(' in str(x):
+        x = x.replace('(', '')
+    if ')' in str(x):
+        x = x.replace(')', '')
+    else:
+        return x
+    return x
+
+def removeAll(x):
+    x = removeUnicode(x)
+    x = removePlus(x)
+    x = removeComma(x)
+    x = removeParentheses(x)
+    return x
 
 # #given dataframe, features, and extras
 # #return dateframe with unique columns
