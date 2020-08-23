@@ -3,6 +3,8 @@ The Federal Reserve sends out detailed reports every week about what they are do
 
 Right now, I have two .csv files that are from the first overview table of the report and the second is specifically about what each bank is doing. Also go ahead and check out banksgraph.html, it is an interactive line graph using plotly showing each bank's total assets.
 
+I have also added a dictionary that contains all the tables and their data written to a .p file using pickle. The dictionary's keys are the various dates that the Federal Reserve posted. The values are then another dictionary of tables and data. This dictionary will be put into both xml and json for anybody that wishes to use the scraped data that way.
+
 ## Pie-Chart of Distribution
 !['Plotly Pie Chart'](https://github.com/trevohearn/FedResStats/blob/master/images/pie_chart.png)
 
