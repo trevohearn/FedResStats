@@ -1,7 +1,19 @@
 # Trevor O'Hearn
 # 6/2/20
 # Methods to help Scrape Fed Reserve
-
+# List of Methods:
+# getLinks
+# getSoup
+# getFeatures
+# getData
+# cleanFeatures
+# cleanData
+# createDataFrame
+# removeAll : includes
+# removePlus
+# removeComma
+# removeUnicode
+# removeParentheses
 #imports
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -98,13 +110,6 @@ def getData(features, bs, totaltablecols, tablecol):
             #increment table parameters for next table
             i += 1
     return data
-
-# def getTableData(features, bs, tablenum=1, column_num):
-#     data = []
-#     tables = bs.select('table')[tablenum]
-#     for index, key in enumerate(features):
-#         if (len(features[key]) > 0): #
-#     return None
 
 #strips the data and returns the chosen features
 def cleanData(data, numFeatures, multiple=4, column=3, skip_amount=1, date_index=0):
