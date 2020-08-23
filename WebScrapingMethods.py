@@ -66,11 +66,7 @@ def getFeatures(bs):
         #get all features for table
         features[curtable] = tables_bs[curtable - 1].findAll('th', {'headers' : 't{}c0'.format(curtable)})
         rows = len(features[curtable])
-        #get all data for table
-    #     for column in range(1, columns):
-    #         #append column of data to list for that table
-    #         dids[curtable].append(bs.select('#t{}c{}'.format(curtable, column)))
-
+        #go to next table
         curtable += 1
     return features
 
