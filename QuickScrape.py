@@ -23,6 +23,7 @@ for a in hrefs:
 
 urls = wsm.getLinks(base_url, end_url_list=end_urls)
 dfs = []
+#loop through all urls and add to dfs
 for url in urls:
     bs = wsm.getSoup(url)
     date = bs.select('.H41Release td p')[0].text.strip()
@@ -48,6 +49,7 @@ for url in urls:
     dfs.append(df)
 
 #clean dataframe
+#add to one large dataframe
 df = dfs[0]
 for d in dfs[1:]:
     df = df.append(d, ignore_index=False)
