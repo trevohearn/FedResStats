@@ -64,4 +64,9 @@ for df in all_dfs:
         df[c] = df[c].apply(wsm.removePlus)
         df[c] = df[c].apply(wsm.removeComma)
         df[c] = df[c].astype(int)
+        #df[c] = df[c].apply(wsm.removeAll)
 all_dfs[0].to_csv('FederalReserveSummaryAugust4th2020.csv')
+
+#import pickle as p
+#p.save()
+#p.loda()
